@@ -7,21 +7,21 @@ package modelo.empleados;
  */
 public class Guarda extends Empleado {
 
-    private int aniosExperiencia;
+    private int añosExperiencia;
     private String turno; // "día" o "noche", se calcula automáticamente
 
-    public Guarda(String name, String apellido, String dni, int aniosExperiencia) {
+    public Guarda(String name, String apellido, String dni, int añosExperiencia) {
         super(name, apellido, dni);
-        this.aniosExperiencia = aniosExperiencia;
-        this.turno = calcularTurno(aniosExperiencia);
+        this.añosExperiencia = añosExperiencia;
+        this.turno = calcularTurno(añosExperiencia);
     }
 
     /**
      * Calcula el turno según la cantidad de años de experiencia.
      * Más de 10 años -> turno "noche". 10 o menos -> turno "día".
      */
-    private String calcularTurno(int aniosExperiencia) {
-        if (aniosExperiencia > 10) {
+    private String calcularTurno(int añosExperiencia) {
+        if (añosExperiencia > 10) {
             return "noche";
         } else {
             return "día";
@@ -30,16 +30,16 @@ public class Guarda extends Empleado {
 
     // ---------- Getters y Setters ----------
 
-    public int getAniosExperiencia() {
-        return aniosExperiencia;
+    public int getañosExperiencia() {
+        return añosExperiencia;
     }
 
     /**
      * Al modificar los años de experiencia, se recalcula el turno automáticamente.
      */
-    public void setAniosExperiencia(int aniosExperiencia) {
-        this.aniosExperiencia = aniosExperiencia;
-        this.turno = calcularTurno(aniosExperiencia);
+    public void setañosExperiencia(int añosExperiencia) {
+        this.añosExperiencia = añosExperiencia;
+        this.turno = calcularTurno(añosExperiencia);
     }
 
     public String getTurno() {
@@ -55,7 +55,7 @@ public class Guarda extends Empleado {
     @Override
     public void mostrarDetalle() {
         super.mostrarDetalle();
-        System.out.println("Años de experiencia: " + aniosExperiencia);
+        System.out.println("Años de experiencia: " + añosExperiencia);
         System.out.println("Turno: " + turno);
     }
 }
