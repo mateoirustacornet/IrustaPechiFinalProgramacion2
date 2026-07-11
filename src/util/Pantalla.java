@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Pantalla {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     private Pantalla() {
         // Clase utilitaria: no se instancia.
