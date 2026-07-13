@@ -9,7 +9,7 @@ import util.Pantalla;
 
 public class Menu {
 
-    public static int mostrarYLeerOpcion() {
+    private static int mostrarYLeerOpcion() {
         Pantalla.imprimir("\n*********************************************");
         Pantalla.imprimir("** MENU PRINCIPAL                          **");
         Pantalla.imprimir("*********************************************");
@@ -50,7 +50,7 @@ public class Menu {
                 case 2: {
                     int n = Pantalla.leerEntero("¿Cuántos trenes con más vagones desea buscar?: ");
                     if (n > 0) {
-                        java.util.ArrayList<Tren> topTrenes = Tren.buscarTrenConMasVagones(trenes, n);
+                        ArrayList<Tren> topTrenes = Tren.buscarTrenConMasVagones(trenes, n);
                         if (topTrenes.isEmpty()) {
                             Pantalla.imprimir("Aviso: No hay trenes registrados.");
                         } else {
@@ -67,7 +67,7 @@ public class Menu {
                 }
                 case 3: {
                     String destino = Pantalla.leerString("Ingrese la estación de destino: ");
-                    java.util.ArrayList<Viaje> viajesDestino = Viaje.buscarViajesPorDestino(viajes, destino);
+                    ArrayList<Viaje> viajesDestino = Viaje.buscarViajesPorDestino(viajes, destino);
                     if (viajesDestino.isEmpty()) {
                         Pantalla.imprimir("Aviso: No se encontraron viajes con destino a " + destino);
                     } else {
@@ -81,7 +81,7 @@ public class Menu {
                 }
                 case 4: {
                     String dniViaje = Pantalla.leerString("Ingrese el DNI del maquinista o guarda: ");
-                    java.util.ArrayList<Viaje> viajesDni = Viaje.buscarViajesPorDniEmpleado(viajes, dniViaje);
+                    ArrayList<Viaje> viajesDni = Viaje.buscarViajesPorDniEmpleado(viajes, dniViaje);
                     if (viajesDni.isEmpty()) {
                         Pantalla.imprimir("Aviso: No se encontraron viajes asociados al DNI " + dniViaje);
                     } else {
@@ -95,7 +95,7 @@ public class Menu {
                 }
                 case 5: {
                     Pantalla.imprimir("\n--- Viajes realizados por trenes de Carga ---");
-                    java.util.ArrayList<Viaje> viajesCarga = Viaje.buscarViajesPorTipoTren(viajes, "Carga");
+                    ArrayList<Viaje> viajesCarga = Viaje.buscarViajesPorTipoTren(viajes, "Carga");
                     if (viajesCarga.isEmpty()) {
                         Pantalla.imprimir("Aviso: No se encontraron viajes realizados con trenes de carga.");
                     } else {
@@ -119,8 +119,10 @@ public class Menu {
                     Pantalla.imprimir("Saliendo del programa... ¡Hasta luego!");
                     break;
                 }
-                default: Pantalla.imprimir("Opción ingresada no válida. Por favor, intente nuevamente.");
-                break;
+                default:{
+                    Pantalla.imprimir("Opción ingresada no válida. Por favor, intente nuevamente.");
+                    break;
+                } 
             }
         }
     }
